@@ -13,6 +13,7 @@ Bundle 'gmarik/vundle'
 " Code Completions
 " --------------
 
+Bundle 'vim-ruby/vim-ruby'
 Bundle 'honza/vim-snippets'
 Bundle 'SirVer/ultisnips'
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -27,21 +28,29 @@ let g:UltiSnipsEditSplit="vertical"
 Bundle 'Valloric/YouCompleteMe'
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_autoclose_preview_window_after_completion=1
-nnoremap <leader>g :YcmCompleter GoToDefinition<CR>
+let g:ycm_complete_in_comments = 1
+let g:ycm_confirm_extra_conf = 0
+
+let g:ycm_semantic_triggers =  {
+\   'c' : ['::', '->', '.'],
+\   'objc' : ['->', '.'],
+\   'ocaml' : ['.', '#'],
+\   'cpp,objcpp' : ['->', '.', '::'],
+\   'perl' : ['->'],
+\   'php' : ['->', '::'],
+\   'cs,java,javascript,d,vim,python,perl6,scala,vb,elixir,go' : ['.'],
+\   'ruby' : ['.', '::'],
+\   'lua' : ['.', ':'],
+\   'erlang' : [':'],
+\ }
+
+nnoremap <leader>g :YcmCompleter GoToImprecise<CR>
 
 Bundle 'ervandew/supertab'
 " SuperTab
 " let g:SuperTabDefultCompletionType='context'
 let g:SuperTabDefaultCompletionType = '<C-X><C-U>'
 let g:SuperTabRetainCompletionType=2
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)"
-            \: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)"
-            \: "\<TAB>"
 
 "Bundle 'davidhalter/jedi-vim'
 
