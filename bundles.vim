@@ -44,7 +44,6 @@ let g:ycm_semantic_triggers =  {
 \   'erlang' : [':'],
 \ }
 
-nnoremap <leader>g :YcmCompleter GoToImprecise<CR>
 
 Bundle 'ervandew/supertab'
 " SuperTab

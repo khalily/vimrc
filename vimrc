@@ -397,3 +397,22 @@ highlight SpellLocal term=underline cterm=underline
 
 set csto=0
 set cst
+
+
+"rust autocomplete with racer
+set hidden
+let g:racer_cmd = "~/bin/racer"
+let $RUST_SRC_PATH="/usr/local/src/rust-nightly/src"
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+
+map <Leader>rr :!cargo run<cr>
+
+nnoremap <leader>g :YcmCompleter GoToImprecise<CR>
+
+"let g:SuperTabLongestHighlight=1
+
+" disable enter hit
+set shortmess=aoOtI
+
+
+
